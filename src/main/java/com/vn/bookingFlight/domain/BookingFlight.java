@@ -9,14 +9,14 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "DatVeMayBay")
-public class DatVeMayBay {
+@Table(name = "bookingflight")
+public class BookingFlight {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long maDatVe;
-    private Double giaVeTong;
+    private Long bookingId;
+    private Double totalCost;
 
     @ManyToOne
-    @JoinColumn(name = "maTaiKhoan")
-    private TaiKhoan taiKhoan;
+    @JoinColumn(name = "accountId")
+    private Account account;
 }

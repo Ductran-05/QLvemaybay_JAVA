@@ -9,11 +9,12 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "HangGhe")
-public class HangGhe {
+@Table(name = "airport")
+public class AirPort {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long maHangGhe;
-    private String tenHangGhe;
-    private Double giaThucTe;
+    private Long _id;
+    private String name;
+    private String country;
+    private String city;
 }

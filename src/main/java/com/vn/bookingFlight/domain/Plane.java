@@ -9,12 +9,10 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "SanBay")
-public class SanBay {
+@Table(name = "plane")
+public class Plane {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long maSB;
-    private String tenSB;
-    private String quocGia;
-    private String thanhPho;
+    private Long _id;
+    private String name;
 }

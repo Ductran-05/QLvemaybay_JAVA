@@ -3,11 +3,10 @@ package com.vn.bookingFlight.controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.vn.bookingFlight.domain.TaiKhoan;
-import com.vn.bookingFlight.dto.request.TaiKhoanRequest;
+import com.vn.bookingFlight.dto.request.AccountRequest;
 import com.vn.bookingFlight.dto.response.APIResponse;
-import com.vn.bookingFlight.dto.response.TaiKhoanResponse;
-import com.vn.bookingFlight.service.TaiKhoanService;
+import com.vn.bookingFlight.dto.response.AccountResponse;
+import com.vn.bookingFlight.service.AccountService;
 
 import lombok.RequiredArgsConstructor;
 
@@ -24,57 +23,57 @@ import org.springframework.web.bind.annotation.RequestBody;
 @RestController
 @RequestMapping("/accounts")
 @RequiredArgsConstructor
-public class TaiKhoanController {
-    private final TaiKhoanService taiKhoanService;
+public class AccountController {
+    private final AccountService accountService;
 
     @GetMapping("/{id}")
-    public ResponseEntity<APIResponse<TaiKhoanResponse>> getTaiKhoan(@PathVariable("id") Long id) {
-        APIResponse<TaiKhoanResponse> apiResponse = APIResponse.<TaiKhoanResponse>builder()
+    public ResponseEntity<APIResponse<AccountResponse>> getAccountById(@PathVariable("id") Long id) {
+        APIResponse<AccountResponse> apiResponse = APIResponse.<AccountResponse>builder()
                 .Code(200)
                 .Message("Get account by id")
-                .data(taiKhoanService.getTaiKhoanById(id))
+                .data(accountService.getAccountByID(id))
                 .build();
         return ResponseEntity.ok().body(apiResponse);
     }
 
     @GetMapping
-    public ResponseEntity<APIResponse<List<TaiKhoanResponse>>> getAllTaiKhoans() {
-        APIResponse<List<TaiKhoanResponse>> apiResponse = APIResponse.<List<TaiKhoanResponse>>builder()
+    public ResponseEntity<APIResponse<List<AccountResponse>>> getAllAccounts() {
+        APIResponse<List<AccountResponse>> apiResponse = APIResponse.<List<AccountResponse>>builder()
                 .Code(200)
                 .Message("Get all accounts")
-                .data(taiKhoanService.getAllTaiKhoans())
+                .data(accountService.getAllAccounts())
                 .build();
         return ResponseEntity.ok().body(apiResponse);
     }
 
     @PostMapping
-    public ResponseEntity<APIResponse<TaiKhoanResponse>> createTaiKhoan(@RequestBody TaiKhoanRequest request) {
-        APIResponse<TaiKhoanResponse> apiResponse = APIResponse.<TaiKhoanResponse>builder()
+    public ResponseEntity<APIResponse<AccountResponse>> createTaiKhoan(@RequestBody AccountRequest request) {
+        APIResponse<AccountResponse> apiResponse = APIResponse.<AccountResponse>builder()
                 .Code(201)
                 .Message("Create account")
-                .data(taiKhoanService.createTaiKhoan(request))
+                .data(accountService.createAccount(request))
                 .build();
         return ResponseEntity.ok().body(apiResponse);
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<APIResponse<TaiKhoanResponse>> updateTaiKhoan(@PathVariable("id") Long id,
-            @RequestBody TaiKhoanRequest request) {
-        APIResponse<TaiKhoanResponse> apiResponse = APIResponse.<TaiKhoanResponse>builder()
+    public ResponseEntity<APIResponse<AccountResponse>> updateAccount(@PathVariable("id") Long id,
+            @RequestBody AccountRequest request) {
+        APIResponse<AccountResponse> apiResponse = APIResponse.<AccountResponse>builder()
                 .Code(200)
                 .Message("Update account by id")
-                .data(taiKhoanService.updateTaiKhoan(id, request))
+                .data(accountService.updateAccount(id, request))
                 .build();
         return ResponseEntity.ok().body(apiResponse);
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<APIResponse<Void>> deleteTaiKhoan(@PathVariable("id") Long id) {
+    public ResponseEntity<APIResponse<Void>> deleteAccount(@PathVariable("id") Long id) {
         APIResponse<Void> apiResponse = APIResponse.<Void>builder()
                 .Code(200)
                 .Message("Delete account by id")
                 .build();
-        taiKhoanService.deleteTaiKhoan(id);
+        accountService.deleteAccount(id);
         return ResponseEntity.ok().body(apiResponse);
     }
 

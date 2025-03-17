@@ -9,19 +9,19 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "ChuyenBay_HangGhe")
-public class ChuyenBayHangGhe {
+@Table(name = "flight_seatclass")
+public class Flight_SeatClass {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @ManyToOne
-    @JoinColumn(name = "maCB")
-    private ChuyenBay chuyenBay;
+    @JoinColumn(name = "flightId")
+    private Flight flight;
 
     @ManyToOne
-    @JoinColumn(name = "maHangGhe")
-    private HangGhe hangGhe;
+    @JoinColumn(name = "seatId")
+    private SeatClass seatClass;
 
-    private Integer soLuong;
+    private Integer quantity;
 }

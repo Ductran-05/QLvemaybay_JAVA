@@ -10,20 +10,20 @@ import java.util.Date;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "SB_CB")
-public class SBCB {
+@Table(name = "airport_flight")
+public class AirPort_Flight {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long _id;
 
     @ManyToOne
-    @JoinColumn(name = "maSB")
-    private SanBay sanBay;
+    @JoinColumn(name = "airportId")
+    private AirPort airPort;
 
     @ManyToOne
-    @JoinColumn(name = "maCB")
-    private ChuyenBay chuyenBay;
+    @JoinColumn(name = "flightId")
+    private Flight flight;
 
-    private Date tgDen;
-    private Date tgDi;
+    private Date arrivalDate;
+    private Date departurDate;
 }
