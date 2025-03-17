@@ -1,6 +1,5 @@
 package com.vn.bookingFlight.Exception;
 
-
 public enum ErrorCode {
     USER_EXISTED(1001, "User existed"),
     USER_NOT_EXISTED(1003, "User not existed"),
@@ -11,6 +10,7 @@ public enum ErrorCode {
     AIRPORT_NOT_EXISTED(1003, "Airport not existed"),
     EMAIL_EXISTED(1001, "Email existed"),
     ACCOUNT_NOT_EXISTED(1003, "Account not existed");
+
     ErrorCode(int code, String message) {
         this.code = code;
         this.message = message;

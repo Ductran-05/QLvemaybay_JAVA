@@ -8,4 +8,6 @@ import com.vn.bookingFlight.domain.TaiKhoan;
 @Repository
 public interface TaiKhoanRepository extends JpaRepository<TaiKhoan, Long> {
 
+    boolean existsByUsername(String username);
+
 }
