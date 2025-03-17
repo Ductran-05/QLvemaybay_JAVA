@@ -1,21 +1,19 @@
 package com.vn.bookingFlight.domain;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
-@Table(name = "hangghe")
+@Table(name = "HangGhe")
 public class HangGhe {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
-    @Column(length = 5)
-    private String maGhe;
-
+    private Long maHangGhe;
     private String tenHangGhe;
-    private double giaThucTe;
+    private Double giaThucTe;
 }

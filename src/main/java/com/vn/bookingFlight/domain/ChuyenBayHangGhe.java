@@ -1,24 +1,27 @@
 package com.vn.bookingFlight.domain;
 
-import jakarta.persistence.EmbeddedId;
-import jakarta.persistence.Entity;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.MapsId;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
-@Table(name = "chuyenbay_hangghe")
+@Table(name = "ChuyenBay_HangGhe")
 public class ChuyenBayHangGhe {
-    @EmbeddedId
-    private ChuyenBayHangGheId id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
     @ManyToOne
-    @MapsId("maCB")
+    @JoinColumn(name = "maCB")
     private ChuyenBay chuyenBay;
 
     @ManyToOne
-    @MapsId("maGhe")
+    @JoinColumn(name = "maHangGhe")
     private HangGhe hangGhe;
 
-    private int soLuong;
+    private Integer soLuong;
 }

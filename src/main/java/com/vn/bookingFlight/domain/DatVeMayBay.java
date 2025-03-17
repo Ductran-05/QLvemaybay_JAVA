@@ -4,26 +4,19 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import java.util.Date;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "SB_CB")
-public class SBCB {
+@Table(name = "DatVeMayBay")
+public class DatVeMayBay {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long maDatVe;
+    private Double giaVeTong;
 
     @ManyToOne
-    @JoinColumn(name = "maSB")
-    private SanBay sanBay;
-
-    @ManyToOne
-    @JoinColumn(name = "maCB")
-    private ChuyenBay chuyenBay;
-
-    private Date tgDen;
-    private Date tgDi;
+    @JoinColumn(name = "maTaiKhoan")
+    private TaiKhoan taiKhoan;
 }

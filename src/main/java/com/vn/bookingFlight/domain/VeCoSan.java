@@ -1,26 +1,24 @@
 package com.vn.bookingFlight.domain;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.JoinColumns;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import java.util.Date;
+import java.util.List;
 
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
-@Table(name = "ve_co_san")
+@Table(name = "VeCoSan")
 public class VeCoSan {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer mave;
+    private Long maVe;
 
     @ManyToOne
-    @JoinColumns({
-            @JoinColumn(name = "maCB", referencedColumnName = "maCB"),
-            @JoinColumn(name = "ngayKhoiHanh", referencedColumnName = "ngayKhoiHanh")
-    })
+    @JoinColumn(name = "maCB")
     private ChuyenBay chuyenBay;
 
     @ManyToOne
@@ -30,10 +28,10 @@ public class VeCoSan {
     private String soGhe;
 
     @ManyToOne
-    @JoinColumn(name = "maKhachHang")
+    @JoinColumn(name = "maKhachHang", nullable = true)
     private KhachHang khachHang;
 
     @ManyToOne
-    @JoinColumn(name = "maDatVe")
-    private DatVe datVe;
+    @JoinColumn(name = "maDatVe", nullable = true)
+    private DatVeMayBay datVeMayBay;
 }

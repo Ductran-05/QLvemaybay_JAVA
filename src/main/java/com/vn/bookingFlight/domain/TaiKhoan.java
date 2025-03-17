@@ -9,12 +9,12 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "SanBay")
-public class SanBay {
+@Table(name = "TaiKhoan")
+public class TaiKhoan {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long maSB;
-    private String tenSB;
-    private String quocGia;
-    private String thanhPho;
+    private Long maTaiKhoan;
+    private String username;
+    private String password;
+    private String email;
 }
