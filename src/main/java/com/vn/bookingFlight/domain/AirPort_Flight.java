@@ -4,26 +4,26 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import java.util.Date;
+import java.time.LocalDateTime;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
 @Table(name = "airport_flight")
-public class AirPort_Flight {
+public class Airport_Flight {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long _id;
+    private Long id;
 
     @ManyToOne
-    @JoinColumn(name = "airportId")
-    private AirPort airPort;
+    @JoinColumn(name = "airportId", nullable = false)
+    private Airport airport;
 
     @ManyToOne
-    @JoinColumn(name = "flightId")
+    @JoinColumn(name = "flightId", nullable = false)
     private Flight flight;
 
-    private Date arrivalDate;
-    private Date departurDate;
+    private LocalDateTime arrivalDate;
+    private LocalDateTime departureDate;
 }

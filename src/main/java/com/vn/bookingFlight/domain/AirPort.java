@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Entity
 @Table(name = "airport")
-public class AirPort {
+public class Airport {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long _id;
