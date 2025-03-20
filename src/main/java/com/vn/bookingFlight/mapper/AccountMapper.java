@@ -9,7 +9,7 @@ import com.vn.bookingFlight.domain.Account;
 import com.vn.bookingFlight.dto.request.AccountRequest;
 import com.vn.bookingFlight.dto.response.AccountResponse;
 
-@Mapper(componentModel = "Spring")
+@Mapper(componentModel = "spring")
 public interface AccountMapper {
     Account toAccount(AccountRequest request);
 
