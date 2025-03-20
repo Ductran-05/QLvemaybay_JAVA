@@ -14,7 +14,7 @@ import java.util.Date;
 public class Flight {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long _id;
+    private Long id;
 
     @ManyToOne
     @JoinColumn(name = "planeId")
